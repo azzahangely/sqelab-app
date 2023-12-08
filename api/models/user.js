@@ -1,9 +1,11 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
-const userSchema = new mongoose.Schema({
-  name: {
+const UMKMSchema = new mongoose.Schema({
+  // Fields specific to UMKM collection
+  username: {
     type: String,
     required: true,
+    unique: true,
   },
   email: {
     type: String,
@@ -14,37 +16,54 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  verified: {
-    type: Boolean,
-    default: false,
+  annualTurnover: {
+    type: Number,
+    default: null,
   },
-  
-  verificationToken: String,
-  addresses: [
-    {
-      name: String,
-      mobileNo: String,
-      houseNo: String,
-      street: String,
-      landmark: String,
-      city: String,
-      country: String,
-      postalCode: String,
-    },
-  ],
-
-  orders: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Order",
-    },
-  ],
-  createdAt: {
-    type: Date,
-    default: Date.now,
+  businessLifespan: {
+    type: Number,
+    default: null,
   },
-});
+  businessIndustry: {
+    type: String,
+    default: null,
+  },
+  // Other fields related to UMKM
+}, { timestamps: true });
 
-const User = mongoose.model("User",userSchema);
+const StudentSchema = new mongoose.Schema({
+  // Fields specific to Student collection
+  username: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  password: {
+    type: String,
+    required: true,
+  },
+  major: {
+    type: String,
+    default: null,
+  },
+  semester: {
+    type: String,
+    default: null,
+  },
+  skillLevel: {
+    type: String,
+    enum: ['Amateur', 'Junior', 'Pro'],
+    default: null,
+  },
+  // Other fields related to Student
+}, { timestamps: true });
 
-module.exports = User
+const UMKM = mongoose.model('UMKM', UMKMSchema);
+const Student = mongoose.model('STUDENT', StudentSchema);
+
+module.exports = { UMKM, Student };
