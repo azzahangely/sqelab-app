@@ -12,8 +12,33 @@ const CreateAccountScreen = () => {
   const [rememberMe, setRememberMe] = useState(false);
 
   const handleSignUp = () => {
-    navigation.navigate('Homepage');
-  };
+    const user = {
+      name: name,
+      email: email,
+      password: password,
+    };
+
+    //send a post req to backend
+    axios
+    .post("http://localhost:8000/register", user)
+    .then((response) => {
+      console.log(response);
+      Alert.alert(
+        "Registration successful",
+        "You have been registered Successfully"
+      );
+      setName("");
+      setEmail("");
+      setPassword("");
+    })
+    .catch((error) => {
+      Alert.alert(
+        "Registration Error",
+        "An error occurred while registering"
+      );
+      console.log("registration failed", error);
+    });
+};
 
   return (
     <View className="flex-1 justify-center items-center p-5">
