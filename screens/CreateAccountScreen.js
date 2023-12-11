@@ -41,7 +41,7 @@ const CreateAccountScreen = () => {
 };
 
 const handleTemp = () => {
-  navigation.navigate('Homepage'); 
+  navigation.navigate('Main'); 
 
 };
 
