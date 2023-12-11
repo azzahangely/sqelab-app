@@ -28,8 +28,8 @@ mongoose
         console.log("Error Connecting to MongoDb", err);
 });
 
-app.listen(port, () => {
-    console.log("Server is running on port " + port);
+app.listen(port, "192.168.56.1", () => {
+  console.log("Server is running on http://192.168.56.1");
 });
 
 
