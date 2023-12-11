@@ -13,6 +13,8 @@ app.use(bodyParser.urlencoded({ extended: false}));
 app.use(bodyParser.json());
 
 const jwt = require("jsonwebtoken");
+const User = require("./models/user");
+const Order = require("./models/order");
 
 mongoose
     .connect("mongodb://azzahazkiyah:sqelab@ac-p0nytwi-shard-00-00.lmtelfd.mongodb.net:27017,ac-p0nytwi-shard-00-01.lmtelfd.mongodb.net:27017,ac-p0nytwi-shard-00-02.lmtelfd.mongodb.net:27017/?ssl=true&replicaSet=atlas-79xj60-shard-0&authSource=admin&retryWrites=true&w=majority", {
@@ -30,37 +32,24 @@ app.listen(port, () => {
     console.log("Server is running on port " + port);
 });
 
-const User = require("./models/user");
-const Order = require("./models/order");
+
 
 
 // =============== REGISTER ENDPOINT =============== //
 
 app.post('/register', async (req, res) => {
-  const { username, email, password, role, major, semester, skillLevel, /* Other fields */ } = req.body;
+  const { username, email, password } = req.body;
 
   try {
     const newUser = new User({
       username,
       email,
-      password,
-      role,
-
-      // UMKM 
-      annualTurnover, 
-      businessLifespan,
-      businessIndustry,
-
-      // STUDENT
-      major,
-      semester,
-      skillLevel,
+      password
     });
 
-    const savedUser = await newUser.save();
-
-    res.status(200).json({ message: 'User registered successfully', user: savedUser });
+    await newUser.save();
+    return res.status(201).json({ message: 'User registered successfully' });
   } catch (error) {
-    res.status(500).json({ error: 'Registration failed' });
+    return res.status(500).json({ message: 'Registration failed', error: error.message });
   }
 });

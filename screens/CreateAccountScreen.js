@@ -40,20 +40,29 @@ const CreateAccountScreen = () => {
     });
 };
 
+const handleTemp = () => {
+  navigation.navigate('Homepage'); 
+
+};
+
   return (
-    <View className="flex-1 justify-center items-center p-5">
-      <Text className="text-3xl font-bold mb-6">Sign Up</Text>
+    <View className="flex-1 justify-center items-center p-5 bg-white">
+      <Text className="text-3xl mb-12 font-semibold">Sign Up</Text>
       <View className="mb-4 w-11/12">
+        <Text className="mb-1">Name</Text>
         <TextInput
-          className="border border-gray-300 p-3 rounded-md w-full"
+          style={{ borderBottomWidth: 1, borderBottomColor: 'gray' }} // Override Tailwind styles for underline effect
+          className="p-3 w-full"
           placeholder="Name"
           value={name}
           onChangeText={setName}
         />
       </View>
       <View className="mb-4 w-11/12">
+        <Text className="mb-1">Email</Text>
         <TextInput
-          className="border border-gray-300 p-3 rounded-md w-full"
+          style={{ borderBottomWidth: 1, borderBottomColor: 'gray' }} // Override Tailwind styles for underline effect
+          className="p-3 w-full"
           placeholder="Email"
           value={email}
           onChangeText={setEmail}
@@ -61,23 +70,17 @@ const CreateAccountScreen = () => {
         />
       </View>
       <View className="mb-4 w-11/12">
+        <Text className="mb-1">Password</Text>
         <TextInput
-          className="border border-gray-300 p-3 rounded-md w-full"
+          style={{ borderBottomWidth: 1, borderBottomColor: 'gray' }} // Override Tailwind styles for underline effect
+          className="p-3 w-full"
           placeholder="Password"
           value={password}
           onChangeText={setPassword}
           secureTextEntry
         />
       </View>
-      <View className="mb-4 w-11/12">
-        <TextInput
-          className="border border-gray-300 p-3 rounded-md w-full"
-          placeholder="Confirm Password"
-          value={confirmPassword}
-          onChangeText={setConfirmPassword}
-          secureTextEntry
-        />
-      </View>
+
       <View className="flex-row items-center mb-4">
         <TouchableOpacity
           onPress={() => setRememberMe(!rememberMe)}
@@ -86,8 +89,8 @@ const CreateAccountScreen = () => {
         <Text>Remember me</Text>
       </View>
       <TouchableOpacity
-        onPress={handleSignUp}
-        className="bg-blue-500 py-3 px-6 rounded-md"
+        onPress={handleTemp}
+        className="bg-[#5093A6] py-4 px-6 rounded-md w-full mt-7"
       >
         <Text className="text-center text-white">Sign Up</Text>
       </TouchableOpacity>

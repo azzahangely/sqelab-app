@@ -20,7 +20,7 @@ const RegisterScreen = () => {
   return (
     <View style={{ flex: 1, justifyContent: 'space-between', alignItems: 'center', backgroundColor: '#FEFEFE', padding: 20 }}>
       <View style={{ justifyContent: 'flex-start', alignItems: 'center', flex: 1 }}>
-        <Text className="text-3xl text-center font-bold mb-6">Let’s Get Started</Text>
+        <Text className="text-3xl text-center font-bold mb-6 mt-8">Let’s Get Started</Text>
       </View>
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <TouchableOpacity
@@ -34,12 +34,16 @@ const RegisterScreen = () => {
           onPress={handleGoogleSignIn}
           style={{ backgroundColor: '#3A657E', width: 335, height: 50, borderRadius: 8 }}
         >
-          <Text style={{ color: '#fff', textAlign: 'center', lineHeight: 50 }}>Google</Text>
+          <Text 
+          style={{lineHeight: 50 }}
+          className="text-white text-center leading-50">Google</Text>
         </TouchableOpacity>
       </View>
-      <View style={{ justifyContent: 'flex-end', alignItems: 'center', flex: 1 }}>
+      <View  className="flex justify-end items-center flex-1 flex-row">
+        <Text className="text-gray-600 mr-1">Already have an account?</Text>
+        {/* Only make "Sign in" text touchable */}
         <TouchableOpacity onPress={() => navigation.navigate('Login')}>
-          <Text className="text-[#8F959E] mb-8">Already have an account? Sign in</Text>
+          <Text className="text-[#5093A6] font-bold">Sign in</Text>
         </TouchableOpacity>
       </View>
       <Footer />

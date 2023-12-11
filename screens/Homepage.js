@@ -50,43 +50,43 @@ const HomeScreen = () => {
   const menuOptions = [
     {
       id: 1,
-      optionName: 'Option 1',
-      imageUrl: 'https://via.placeholder.com/150', // Replace with your actual image URL
+      optionName: 'Social Media Marketing',
+      imageUrl: require('../assets/Social-media-marketing.png'), // Replace with your actual image URL
     },
     {
       id: 2,
-      optionName: 'Option 2',
-      imageUrl: 'https://via.placeholder.com/150', // Replace with your actual image URL
+      optionName: 'Brand Identity',
+      imageUrl: require('../assets/Brand-identity.png'), // Replace with your actual image URL
     },
     {
       id: 3,
-      optionName: 'Option 3',
-      imageUrl: 'https://via.placeholder.com/150', // Replace with your actual image URL
+      optionName: 'Web & App Design',
+      imageUrl: require('../assets/WebApp-design.png'), // Replace with your actual image URL
     },
     {
       id: 4,
-      optionName: 'Option 4',
-      imageUrl: 'https://via.placeholder.com/150', // Replace with your actual image URL
+      optionName: 'Illustration',
+      imageUrl: require('../assets/Illustration.png'), // Replace with your actual image URL
     },
     {
       id: 5,
-      optionName: 'Option 5',
-      imageUrl: 'https://via.placeholder.com/150', // Replace with your actual image URL
+      optionName: 'Architecture & Design',
+      imageUrl: require('../assets/ArchDesign.png'), // Replace with your actual image URL
     },
     {
       id: 6,
-      optionName: 'Option 6',
-      imageUrl: 'https://via.placeholder.com/150', // Replace with your actual image URL
+      optionName: 'Print Materials',
+      imageUrl: require('../assets/Print.png'), // Replace with your actual image URL
     },
     {
       id: 7,
-      optionName: 'Option 7',
-      imageUrl: 'https://via.placeholder.com/150', // Replace with your actual image URL
+      optionName: 'Other Designs',
+      imageUrl: require('../assets/Others.png'), // Replace with your actual image URL
     },
     {
       id: 8,
-      optionName: 'Option 8',
-      imageUrl: 'https://via.placeholder.com/150', // Replace with your actual image URL
+      optionName: 'Help',
+      imageUrl: require('../assets/help.png'), // Replace with your actual image URL
     },
   ];
   
@@ -104,7 +104,7 @@ const HomeScreen = () => {
             <TouchableOpacity key={menuOptions[index].id} className="w-[23%]">
               {/* Menu Option Item */}
               <Image
-                source={{ uri: menuOptions[index].imageUrl }}
+                source={menuOptions[index].imageUrl}
                 className="w-20 h-20 rounded-full mb-2"
               />
               <Text className="mt-2 text-center">{menuOptions[index].optionName}</Text>
