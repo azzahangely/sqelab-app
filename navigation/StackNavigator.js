@@ -13,6 +13,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Entypo } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
+import LoginScreen from '../screens/LoginScreen';
 
 
 const StackNavigator = () => {
@@ -87,6 +88,7 @@ const StackNavigator = () => {
     <Stack.Screen name="Splash" component={SplashScreen} />
       <Stack.Screen name="Landing" component={LandingScreen} />
       <Stack.Screen name="Register" component={RegisterScreen} />
+      <Stack.Screen name="Login" component={LoginScreen}/>
       <Stack.Screen name="Create Account" component={CreateAccountScreen} />
       <Stack.Screen name="Main" component={BottomTabs} />
       <Stack.Screen name="Categories" component={Categories} />
